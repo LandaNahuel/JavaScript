@@ -1,33 +1,54 @@
-
-
-let entrada= prompt("Ingrese el dia").toLowerCase();
-
-while(entrada != "esc" ){
-    if(entrada == "lunes"){
-        alert(`El ${entrada} tenes dia libre`);
-        entrada= prompt("Ingrese el dia");
-    }else if(entrada == "martes"){
-        alert(`El ${entrada} tenes clase de JavaScript`);
-        entrada= prompt("Ingrese el dia");
-    }else if(entrada == "miercoles"){
-        alert(`El ${entrada} tenes cena familiar`);
-        entrada= prompt("Ingrese el dia");
-    }else if(entrada == "jueves"){
-        alert(`El ${entrada} tenes gimnasio`);
-        entrada= prompt("Ingrese el dia");
-    }else if(entrada == "viernes"){
-        alert(`El ${entrada} tenes after del laburo`);
-        entrada= prompt("Ingrese el dia");
-    }else if(entrada == "sabado"){
-        alert(`El ${entrada} tenes salida con amigos`);
-        entrada= prompt("Ingrese el dia");
-    }else if(entrada == "domingo"){
-        alert(`El ${entrada} tenes Game of Trones`);
-        entrada= prompt("Ingrese el dia");
-    }else {
-        alert("Ese dia no existe")
-        entrada= prompt("Ingrese el dia");
+function agenda(accion){
+        while(accion != "esc" ){
+            switch (accion){
+            case "consultar":
+                let dia = prompt("ingrese el dia");
+                while(accion != "esc" ){
+                    if(dia == "lunes"){
+                        alert(`El ${dia} tenes dia libre`);
+                        break;
+                    }else if(dia == "martes"){
+                        alert(`El ${dia} tenes clase de JavaScript`);
+                        break;
+                    }else if(dia == "miercoles"){
+                        alert(`El ${dia} tenes cena familiar`);
+                        break;
+                    }else if(dia == "jueves"){
+                        alert(`El ${dia} tenes gimnasio`);
+                        break;
+                    }else if(dia == "viernes"){
+                        alert(`El ${dia} tenes after del laburo`);
+                        break;
+                    }else if(dia == "sabado"){
+                        alert(`El ${dia} tenes salida con amigos`);
+                        break;
+                    }else if(dia == "domingo"){
+                        alert(`El ${dia} tenes Game of Trones`);
+                        break;
+                    }else {
+                        alert("Ese dia no existe")
+                        break;
+                    }
+                }
+            case "agregar":
+                class ActividadNueva{
+                    constructor(actividad, dia, turno) {
+                        this.actividad = actividad;
+                        this.dia   = dia;
+                        this.turno  = turno;
+                    }
+                    hablar(){
+                        alert("El dia "+ this.dia +" tienes "+this.actividad+" "+this.turno);
+                    }
+                }
+                const actNew = new ActividadNueva(prompt("Ingrese una actividad"), prompt("Ingrese el dia"), prompt("Indique si es POR LA MAÑANA o POR LA TARDE").toLowerCase());
+                actNew.hablar();
+            default :
+                alert("Comando invalido")             
+            }
+        }
     }
     
-}
+alert(agenda(prompt("Ustes desea CONSULTAR agenda o AGREGAR actividad")));
+
 
